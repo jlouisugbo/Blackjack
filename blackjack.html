@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <script type="module" src="blackjack.js"></script>
+
+    <div class="min-h-screen flex items-center justify-center bg-green-800">
+        
+        <!--- WELCOME SCREEN-->
+        <div id="welcome-screen" class="flex flex-col place-items-center justify-items-center bg-white p-8 rounded-lg shadow-lg min-h-8 max-w-md w-full items-center justify-center">
+            <h1 class="text-4xl mb-4 text-amber-600">Blackjack</h1>
+            
+            <p class="italic m-0 mb-4"> Want to play a round?</p>
+        
+            <button onclick="startGame()" class="flex m-3 justify-center items-center rounded-md bg-amber-400 min-w-40 p-1 text-white hover:bg-amber-600 hover:scale-105 outline-2 outline-offset-2 outline-black hover:text-black transition-all duration-300 ease-in-out active:shadow-lg active:scale-110 active:bg-amber-400">
+                START GAME
+            </button>
+        </div>
+
+        <!-- GAME SCREEN -->
+        <div id="game-screen" class="hidden flex flex-col place-items-center p-8 rounded-lg shadow-lg min-w-60 bg-white">
+            <h1 class="text-4xl mb-4 text-amber-600">Blackjack</h1>
+            <div id="card-container" class="flex flex-row space-x-20">
+                <div id="player-container" class="bg-blue-500 flex flex-col justify-items-center place-items-center space-y-4 p-4 rounded">
+                    <div class="text-white font-bold">
+                        You
+                    </div>
+                    <!-- PLAYER -->
+                    <div id="player-cards" class="flex flex-wrap flex-row gap-4 min-h-32">
+                        
+                    </div>
+
+                    <div class="text-white font-bold">
+                        <p>Value: <span id="pval">0</span></p>
+                    </div>
+                </div>
+                <!-- DEALER -->
+                <div id="dealer-container" class="bg-red-500 flex flex-col space-y-4 justify-items-center place-items-center p-4 rounded">
+                    <div class="text-white font-bold">
+                        Dealer
+                    </div>
+                    <div id="dealer-cards" class="flex flex-row flex-wrap gap-4 min-h-32">
+                        
+                    </div>
+
+                    <div class="text-white font-bold">
+                        <p>Value: <span id="dval">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row space-x-4">
+                <button onclick="hit()" class="rounded bg-green-500 text-white px-6 py-2 mt-8 hover:bg-green-600 hover:scale-105 active:bg-green-500 active:scale-110 transition-all duration-200 ease-in-out"> HIT </button>
+                <button onclick="stand()" class="rounded bg-red-500 text-white px-6 py-2 mt-8 hover:bg-red-600 hover:scale-105 active:bg-red-500 active:scale-110 transition-all duration-200 ease-in-out"> STAND </button>
+            </div>
+        </div>
+
+        <!-- POP UP SCREEN-->
+        <div id="modal" class="fixed inset-0 flex items-center justify-center hidden">
+            <div class="bg-black bg-opacity-75 p-4 rounded">
+                <p id="modalText" class="text-xl font-bold text-white"></p>
+            </div>
+        </div>
+
+        <!-- GAME OVER SCREEN -->
+        <div id="game-over-screen" class="hidden flex flex-col place-items-center p-8 rounded-lg shadow-lg min-w-80 bg-white">
+            <h1 class="text-4xl mb-4 text-amber-600">Game Over!</h1>
+            <h3 class="font-bold text-xl mb-4">You <span id="result"></span>!</h3>
+            <p class="mb-4"> Win Record: <span id="wins">0</span> - <span id="ties"></span> - <span id="losses">0</span></p>
+            <button onclick="playAgain()" class="flex m-3 justify-center items-center rounded-md bg-amber-400 min-w-40 p-2 text-white hover:bg-amber-600 hover:scale-105 hover:text-black transition-all duration-300 ease-in-out active:shadow-lg active:scale-110">
+                Play again?
+            </button>
+        </div>
+    </div>
+</body>
+</html>

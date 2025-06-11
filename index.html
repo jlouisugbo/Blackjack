@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-blue-300">
+    <div class="flex flex-col p-5 justify-between items-center bg-blue-500">
+        <h1 class="text-2xl font-bold text mb-5">
+            People entered
+        </h1>
+        <h2 id="count-el" class="font-bold text-5xl mb-4">0</h2>
+
+        <button id="increment-btn" onclick="increment()" class="active:scale-110 active:shadow-lg active:shadow-red-950 w-40 bg-red-900 text-white p-1.5 
+            rounded-md font-bold hover:bg-red-800 m-1 transition duration-300 ease-in-out">
+            INCREMENT
+        </button>
+
+        <button id="save-btn" onclick="save()" class="flex items-center justify-center min-w-40 bg-green-900 text-white p-1.5 
+            rounded-md font-bold hover:bg-green-800 m-1 transition duration-300 ease-in-out
+            active:scale-110 active:shadow-lg active:shadow-green-950">
+            SAVE
+        </button>
+
+        <button id="load-btn" onclick="load()" class="active:scale-110 active:shadow-lg active:shadow-blue-950 items-center justify-center min-w-40 w-fit bg-blue-900 text-white p-1.5 
+            rounded-md font-bold hover:bg-blue-800 m-1 transition duration-300 ease-in-out">
+            LOAD
+        </button>
+
+        <h3 class="font-bold">Entries: <span id="entries">No previous entries!</span></h3>
+        <script src="index.js"></script>
+    </div>
+</body>
+</html>
